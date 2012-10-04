@@ -6,9 +6,9 @@
 	
 	Plugin Name: checkeDevice
 	Plugin URI: 
-	Description: Conditional functions for detecting mobile devices, tablets and desktops. Use is_mobile(), is_tablet(), and is_desktop() in your template files.
+	Description: Conditional functions for detecting mobile devices, tablets and desktops. Use is_mobile(), is_tablet(), and is_desktop() and is_touch_device() and  in your template files. 
 	Author: Georg Tremmel
-	Version: 1.0	
+	Version: 2.0	
 	Author URI: http://www.trembl.org
 
 	This program is free software: you can redistribute it and/or modify
@@ -43,6 +43,10 @@ $useragent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 
 
 // get windowWidth cookie
 $windowWidth = (isset($_COOKIE['windowWidth']) && $_COOKIE['windowWidth']!="") ? $_COOKIE['windowWidth'] : 0;
+
+// get touch cookie
+$touchEnabled = (isset($_COOKIE['touchEnabled']) && $_COOKIE['touchEnabled']!="") ? $_COOKIE['touchEnabled'] : false;
+
 
 function is_iphone() {
 	global $useragent;
@@ -163,6 +167,25 @@ function is_desktop() {
 function is_tablet_or_desktop() {
 	return(!is_mobile());
 }
+
+function is_touch_device() {
+	global $touchEnabled;
+	if ($touchEnabled=="true" || (is_ios() || is_samsung_galaxy_tab()) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function is_not_touch_device() {
+	return !is_touch_device();
+}
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 jQuery(document).ready(function(){
 	updateWidth();
+	document.cookie = "touchEnabled=" + !!('ontouchstart' in window) ;
 });
 
 jQuery(window).resize(function() {
@@ -9,3 +10,4 @@ jQuery(window).resize(function() {
 var updateWidth = function() {
 	document.cookie = "windowWidth=" + jQuery(window).width();
 }
+

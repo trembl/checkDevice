@@ -17,7 +17,7 @@ Helper plugin that provides conditional functions for detecting a variety of mob
 To install this plugin:
 
 1. Upload the `mobble` folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+2. Activate the plugin through the 'Plugins' menu in WordPress
 1. You can now use `<?php is_mobile(); is_tablet(); is_desktop() ?>` functions in your template
 
 == Frequently Asked Questions ==
